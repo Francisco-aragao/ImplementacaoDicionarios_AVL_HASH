@@ -1,0 +1,3 @@
+Consideraçõs sobre analise experimental
+  - Número de verbetes
+  - Número máximo de significados por verbete
