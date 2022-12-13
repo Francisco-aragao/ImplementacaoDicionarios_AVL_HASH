@@ -50,16 +50,11 @@ clean:
 debug:
 	$(CC) $(DEBUG) -g -o $(BIN_FOLDER)$(TARGET_DEBUG) $(OBJ)
 
-runLOG:
-	./bin/run.out -v 1 -s 10 -i entradaLOG.txt -o saidaRec.txt -p -l
-	rm -rf graficos/recursaoGraficos
-	mkdir graficos/recursaoGraficos
-	cp log.out graficos/recursaoGraficos
-	./mem/analisamem -i graficos/recursaoGraficos/log.out -p graficos/recursaoGraficos/saida
-	gnuplot graficos/recursaoGraficos/*gp
-
 runArv:
-	./bin/run.out -i entrada.txt -o saida.txt -t arv
+	./bin/run.out -i ./tp3_tests/input_03.txt -o saida.txt -t arv
+
+testeArv:
+	./bin/run.out -i entradaTeste.txt -o saida.txt -t arv
 	
 runHash:
-	./bin/run.out -i entrada.txt -o saida.txt -t hash
+	./bin/run.out -i ./tp3_tests/input_01.txt -o saida.txt -t hash

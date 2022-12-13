@@ -1,15 +1,12 @@
-#include <iostream>
 #include <string.h>
 #include <fstream>
 #include <sys/resource.h>
 
 #include "../include/msgassert.hpp"
 #include "../include/memlog.hpp"
-
-using std::string;
+#include "../include/Arvore.hpp"
 
 int main (int argc, char* argv[]) {
-   
     
     // ------------------ Verificações dos parâmetros de entrada ----------------------
 
@@ -57,17 +54,52 @@ int main (int argc, char* argv[]) {
     arquivoEntrada.open(nomeArquivoEntrada);
     erroAssert(arquivoEntrada.is_open() == true, "Erro abertura arquivo de entrada");  
 
-    std::ofstream arquivoSaida;
-    arquivoSaida.open(nomeArquivoSaida);
-    erroAssert(arquivoSaida.is_open() == true, "Erro abertura arquivo de saida");  
+    //std::ofstream arquivoSaida;
+    //arquivoSaida.open(nomeArquivoSaida);
+   
 
     // ------------------ Fim da verificações dos parâmetros de entrada ----------------------
-    string teste;
-    arquivoEntrada >> teste;
-    std::cout << teste << std::endl;
+
+
+    //Arvore arvore;
+
+    char tipo;
+    string nome;
+    string significado;
+    char aux;
+
+    Arvore *arvore = new Arvore (nomeArquivoSaida);
+    if (estrutura == 1) {
+        int zc = 0;
+        while (arquivoEntrada >> tipo) {
+            arquivoEntrada >> aux; //leio [
+            arquivoEntrada >> nome;
+            nome.erase(nome.size() - 1); //apago ]
+            //arquivoEntrada >> aux; //leio caractere de espaço
+            /* if (nome == "bronchiarctia") {
+                cout << "asjdlkasjdlajd\n";
+                break;
+            } */
+            //cout << "******* nome " << nome << endl;
+            getline(arquivoEntrada, significado);
+            //if (significado == "") cout << "---SIG VAZIO---\n";
+            arvore->adicionar(tipo, nome, significado);
+            zc++;
+            //if (zc == 50) break;
+        }
+
+    }
+
+    cout << endl << endl;
+    //arvore->imprimirInOrdem(arvore->getRaiz());
+    arvore->imprimir();
+    arvore->removerComSignificado();
+    arvore->imprimir();
+
+    delete arvore;
 
     arquivoEntrada.close();
-    arquivoSaida.close();
+    //arquivoSaida.close();
 
 /* 
     if (ativaMem == true) desativaMemLog();

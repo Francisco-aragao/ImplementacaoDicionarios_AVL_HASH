@@ -1,3 +1,13 @@
 Consideraçõs sobre analise experimental
   - Número de verbetes
   - Número máximo de significados por verbete
+
+- verbetes tem significados
+- arvores tem vários verbetes
+
+- TESTAR ATÉ ESSA PALAVRA E VER ONDE TA ERRO enharmonically
+(ACHO QUE ERRO DEVE ESTAR NA HORA DE RODAR E AI PERCO ALGUM FILHO)
+
+- OLHAR FATOR BALANCEAMENTO AO APAGAR PRA VER SE TENHO QUE FAZER ROTACAO
+
+- TRATAR NO COM 2 FILHOS E BALANC 0 

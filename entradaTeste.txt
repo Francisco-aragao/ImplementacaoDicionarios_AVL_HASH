@@ -1,0 +1,7 @@
+a [f]
+a [b]
+a [m]
+a [a]
+a [h]
+a [n] nnnn
+a [x]
